@@ -5,6 +5,8 @@ const dotenv = require("dotenv").config();
 
 let mqttHandler = require("./mqtt_handler");
 
+const port = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,4 +19,4 @@ app.post("/send-mqtt", (req, res) => {
     res.status(200).send("Message sent to mqtt");
 });
 
-app.listen(process.env.PORT, () => console.log(`Server is running on port ${process.env.PORT}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
