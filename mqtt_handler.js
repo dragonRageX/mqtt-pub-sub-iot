@@ -32,7 +32,8 @@ class MqttHandler
 
         // when a message arrives, log it
         this.mqttClient.on("message", (topic, message) => {
-            console.log(message.toString());
+            console.log(`New Message: ${message.toString()}`);
+            console.log(`from Topic: ${topic.toString()}`);
         });
 
         //close connection - client.end() in mqtt.js file
