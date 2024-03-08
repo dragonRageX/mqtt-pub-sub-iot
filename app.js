@@ -15,6 +15,7 @@ mqttClient.connect();
 
 // Routes
 app.post("/send-mqtt", (req, res) => {
+    console.log(req.body);
     console.log("Request message: " + req.body.message);
     mqttClient.sendMessage(req.body.message);
     res.status(200).send("Message sent to mqtt");
